@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>js数组方法总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="js中常用数组方法总结1.Array.push()  push() 可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回新数组的长度。  1234var arr &#x3D; [1,2,3,4,5];var len &#x3D; arr.push(6);&#x2F;&#x2F;返回添加完数组的新长度console.log(arr);&#x2F;&#x2F;[1, 2, 3, 4, 5, 6]c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数组方法总结">
+<meta property="og:url" content="http://yoursite.com/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="js中常用数组方法总结1.Array.push()  push() 可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回新数组的长度。  1234var arr &#x3D; [1,2,3,4,5];var len &#x3D; arr.push(6);&#x2F;&#x2F;返回添加完数组的新长度console.log(arr);&#x2F;&#x2F;[1, 2, 3, 4, 5, 6]c">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-14T03:51:17.191Z">
+<meta property="article:modified_time" content="2020-05-14T02:54:05.940Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js数组方法总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2020-05-14T03:51:17.191Z" itemprop="datePublished">2020-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js数组方法总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="js中常用数组方法总结"><a href="#js中常用数组方法总结" class="headerlink" title="js中常用数组方法总结"></a>js中常用数组方法总结</h1><p>1.Array.push()</p>
+<ul>
+<li>push() 可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回新数组的长度。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">var len &#x3D; arr.push(6);&#x2F;&#x2F;返回添加完数组的新长度</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[1, 2, 3, 4, 5, 6]</span><br><span class="line">console.log(len)&#x2F;&#x2F;6</span><br></pre></td></tr></table></figure>
+<ul>
+<li>unshift()方法与push()方法相反，能够在数组前面添加任意个项，并返回新数组的长度。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">var len &#x3D; arr.unshift(-1,0);</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[-1,0,1,2,3,4,5]</span><br><span class="line">console.log(len)&#x2F;&#x2F;7</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pop() 从数组末尾移除最后一项，减少数组的length值，然后返回移除的项。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">var last &#x3D; arr.pop();&#x2F;&#x2F;删除并返回数组最后一个数</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[1, 2, 3, 4]</span><br><span class="line">console.log(last)&#x2F;&#x2F;5</span><br></pre></td></tr></table></figure>
+<ul>
+<li>shift()方法与pop()方法相反，能够移除数组中的第一个项并返回该项，同时将数组长度减 1。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">var first &#x3D; arr.shift();&#x2F;&#x2F;删除并返回数组第一个数</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[2, 3, 4,5]</span><br><span class="line">console.log(first)&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>reverse() 方法会反转数组项的顺序。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[1,2,3,4,5]</span><br><span class="line">arr.reverse();</span><br><span class="line">console.log(arr)&#x2F;&#x2F;[5,4,3,2,1]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sort() 方法按字母表，数字升序排列数组项。sort()这个方法分几种情况</li>
+</ul>
+<ol>
+<li>当数组为纯数字时,sort()这个方法会根据从0到9的顺序先比较第一位，第一位相同时再比较第二位<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [12, 11, 0, 34, 8, 65];</span><br><span class="line">arr.sort();</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[0, 11, 12, 34, 65, 8]</span><br></pre></td></tr></table></figure></li>
+<li>当数组为纯字母时，sort()这个方法会根据a-z这个顺序先比较第一位，第一位相同时再比较第二位<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#39;gg&#39;,&#39;as&#39;,&#39;ft&#39;,&#39;g&#39;,&#39;ab&#39;];</span><br><span class="line">arr.sort();</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[&quot;ab&quot;, &quot;as&quot;, &quot;ft&quot;, &quot;g&quot;, &quot;gg&quot;]</span><br></pre></td></tr></table></figure></li>
+<li>当数组为数字与字母混合时，sort()这个方法会先排序数字然后再排序字母<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#39;c&#39;,&#39;a&#39;,3,1,&#39;b&#39;,2];</span><br><span class="line">arr.sort();</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[1, 2, 3, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</span><br></pre></td></tr></table></figure></li>
+<li>sort()这个方法里面还可以传参数 Object.sort(function) 里面传的参数是必须一个函数</li>
+</ol>
+<h3 id="请注意，上面的代码没有按照数值的大小对数字进行排序，要实现这一点，就必须使用一个排序函数："><a href="#请注意，上面的代码没有按照数值的大小对数字进行排序，要实现这一点，就必须使用一个排序函数：" class="headerlink" title="请注意，上面的代码没有按照数值的大小对数字进行排序，要实现这一点，就必须使用一个排序函数："></a>请注意，上面的代码没有按照数值的大小对数字进行排序，要实现这一点，就必须使用一个排序函数：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [12,11,0,34,8,65];</span><br><span class="line">arr.sort(function(a,b)&#123;</span><br><span class="line">    return a-b;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[0, 8, 11, 12, 34, 65]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>concat() 方法用于连接两个或多个数组，参数可以是数组项或者数组( 可以多个参数 )。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3];</span><br><span class="line">var arr1 &#x3D; [4,5,6];</span><br><span class="line">var newsArr &#x3D; arr.concat(arr1);</span><br><span class="line">console.log(newsArr);&#x2F;&#x2F;[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure></li>
+<li><p>join()方法，将数组转换成对应的字符串。参数就是连接符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">arr &#x3D; arr.join(&#39;-&#39;);</span><br><span class="line">console.log(arr);&#x2F;&#x2F;1-2-3-4-5-6</span><br></pre></td></tr></table></figure></li>
+<li><p>slice() 方法可从已有的数组中截取部分并返回选定的元素。参数一必填，为起始位置的下标（如果参数为负数，如-1，即从倒数开始，-2即倒数第二个）。参数二可选，为结束位置的下标,注意:不会改变原数组会返回一个新子数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">var newsArr &#x3D; arr.slice(2);&#x2F;&#x2F;表示从下标2开始截取到最后的数组</span><br><span class="line">console.log(newsArr);&#x2F;&#x2F;[3, 4, 5, 6]</span><br><span class="line">&#x2F;&#x2F;第二个参数表示截取多少为</span><br><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">var newsArr &#x3D; arr.slice(2,4);&#x2F;&#x2F;表示从下标2开始截取到下标4的值(包括起始下标2但不包括结束下标4)</span><br><span class="line">console.log(newsArr);&#x2F;&#x2F;[3, 4]</span><br><span class="line">- splice() 为js数组最强大的方法 可以对数组进行</span><br></pre></td></tr></table></figure></li>
+<li><p>splice() 为js数组最强大的方法 可以对数组进行 删除、插入、替换，注意：会改变原数组 ，返回值是修改完的数组 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;删</span><br><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">arr.splice(0,2);&#x2F;&#x2F;俩个参数表示的意思是从下标0开始 删除2个子元素</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[3, 4, 5, 6]</span><br><span class="line">&#x2F;&#x2F;插入</span><br><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">arr.splice(2,0,&#39;hellow&#39;);&#x2F;&#x2F;三个参数表示的是在下标为2处添加一个hellow，添加的值可为多个</span><br><span class="line">&#x2F;&#x2F;注意：添加第二个参数须写为0 否则将变成修改</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[1, 2, &quot;hellow&quot;, 3, 4, 5, 6]</span><br><span class="line">&#x2F;&#x2F;替换</span><br><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">arr.splice(1,2,&#39;hellow&#39;);&#x2F;&#x2F;这句话的意思从下标为1开始 将之后的俩个元素替换成hellow</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[1, &quot;hellow&quot;, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+<h2 id="ES5新增方法"><a href="#ES5新增方法" class="headerlink" title="ES5新增方法"></a>ES5新增方法</h2></li>
+<li><p>isArray()  判断是否为数组方法，返回值为布尔值</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3];</span><br><span class="line">var str &#x3D; &#39;我是字符串&#39;;</span><br><span class="line">console.log(Array.isArray(arr));&#x2F;&#x2F;true</span><br><span class="line">console.log(Array.isArray(str));&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查找索引，位置，下标方法　</li>
+</ul>
+<ol>
+<li>indexOf(index,start) index代表查找的项 start 代表查找的起始位置（默认是下标0） 返回值为查找项的第一个下标 找不到则返回-1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5,6,7];</span><br><span class="line">console.log(arr.indexOf(3));&#x2F;&#x2F;找到的下标为2</span><br><span class="line">var arr1 &#x3D; [1,2,3,4,5,3];</span><br><span class="line">console.log(arr1.indexOf(3,3));&#x2F;&#x2F;指的是从下标3开始查找项为3的下标，返回值为5</span><br></pre></td></tr></table></figure></li>
+<li>lastIndexOf(index,start)   lastIndexOf 跟indexOf用法基本一致，区别是lastIndexOf返回的是最后一个下标 找不到同样返回-1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,1,1];</span><br><span class="line">console.log(arr.lastIndexOf(1));&#x2F;&#x2F;从最后开始查找 找到的第一个下标为2</span><br><span class="line">var arr1 &#x3D; [1,2,3,4,5,3];</span><br><span class="line">console.log(arr1.lastIndexOf(3,4));&#x2F;&#x2F;从下标4开始查找 找到最后一个项的下标为2</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>数组的迭代方法</li>
+</ul>
+<ol>
+<li>forEach()循环</li>
+</ol>
+<p>　　　　　　功能：循环遍历数组中的每个元素，对数组的每个元素做运算 比for循环简便 但不能随意退出 不能使用  break；</p>
+<p>　　　　　　参数：回调函数</p>
+<p>　　　　　　返回值：无</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">arr.forEach(function(item,index,arr)&#123;&#x2F;&#x2F;第一参数item表示的是每个项  第二个参数index表示的是每个下标 第三个参数arr表示的是数组对象</span><br><span class="line">    arr[index] &#x3D; item+1;&#x2F;&#x2F;这里所做的是将每一项的值加1</span><br><span class="line">&#125;)</span><br><span class="line">console.log(arr);&#x2F;&#x2F; [2, 3, 4, 5, 6, 7]</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>map()映射</li>
+</ol>
+<p>　　　　　　功能：返回一个新数组，新数组中的元素为原始数组元素调用函数处理后的值。不改变原数组</p>
+<p>　　　　　　参数：回调函数</p>
+<p>　　　　　　返回值：新的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">var newArr &#x3D; arr.map(function(item,index,arr)&#123;&#x2F;&#x2F;第一参数item表示的是每个项  第二个参数index表示的是每个下标 第三个参数arr表示的是数组对象</span><br><span class="line">    return item+1;&#x2F;&#x2F;这里所做的是返回每一项的值并加1</span><br><span class="line">&#125;)</span><br><span class="line">console.log(newArr);&#x2F;&#x2F; [2, 3, 4, 5, 6, 7]</span><br><span class="line">console.log(arr);&#x2F;&#x2F; [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>filter() 过滤</li>
+</ol>
+<p>　　　　　　 功能：检测数值元素，并返回符合条件所有元素的数组   </p>
+<p>　　　　　　 参数：回调函数   </p>
+<p>　　　　　　 返回值：新的数组 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5,6];</span><br><span class="line">var newArr &#x3D; arr.filter(function(item,index,arr)&#123;&#x2F;&#x2F;第一参数item表示的是每个项  第二个参数index表示的是每个下标 第三个参数arr表示的是数组对象</span><br><span class="line">    return item&gt;3;&#x2F;&#x2F;返回大于3的值</span><br><span class="line">&#125;)</span><br><span class="line">console.log(newArr);&#x2F;&#x2F; [4, 5, 6]</span><br><span class="line">console.log(arr);&#x2F;&#x2F; [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>find()</li>
+</ol>
+<ul>
+<li>返回通过测试的数组的第一个元素的值<br>在第一次调用 callback 函数时会确定元素的索引范围，因此在 find 方法开始执行之后添加到数组的新元素将不会被 callback 函数访问到。不会改变原数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> var arr &#x3D; [1,2,3,4,5,6,7];</span><br><span class="line"> var ar &#x3D; arr.find(function(elem)&#123;</span><br><span class="line">     return elem&gt;5;</span><br><span class="line"> &#125;);</span><br><span class="line"> console.log(ar);&#x2F;&#x2F;6</span><br><span class="line">console.log(arr);&#x2F;&#x2F;[1,2,3,4,5,6,7]</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" data-id="cka68l1gw0001b8tx7jeg1vhb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/14/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">js数组方法总结</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/14/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
