@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 前端学习日记</title>
+  <title>06-ES6：promise、async等 | 前端学习日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习日记">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="前言文本主要内容：  Promise（比较重要）  Symbol  async函数   Promise概述Promise对象: 代表了未来某个将要发生的事件(通常是一个异步操作)。 ES6中的promise对象, 可以将异步操作以同步的流程表达出来，很好地解决了回调地狱的问题（避免了层层嵌套的回调函数）。在使用ES5的时候，在多层嵌套回调时，写完的代码层次过多，很难进行维护和二次开发。 回调地狱的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="06-ES6：promise、async等">
+<meta property="og:url" content="http://yoursite.com/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/index.html">
 <meta property="og:site_name" content="前端学习日记">
+<meta property="og:description" content="前言文本主要内容：  Promise（比较重要）  Symbol  async函数   Promise概述Promise对象: 代表了未来某个将要发生的事件(通常是一个异步操作)。 ES6中的promise对象, 可以将异步操作以同步的流程表达出来，很好地解决了回调地狱的问题（避免了层层嵌套的回调函数）。在使用ES5的时候，在多层嵌套回调时，写完的代码层次过多，很难进行维护和二次开发。 回调地狱的">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.smyhvae.com/20180317_1134.png">
+<meta property="og:image" content="http://img.smyhvae.com/20180317_1134.png">
+<meta property="og:image" content="http://img.smyhvae.com/20180317_1134.png">
+<meta property="og:image" content="http://img.smyhvae.com/20180317_1134.png">
+<meta property="og:image" content="http://img.smyhvae.com/20180317_1134.png">
+<meta property="article:published_time" content="2020-05-23T08:47:30.682Z">
+<meta property="article:modified_time" content="2020-05-23T08:26:27.581Z">
 <meta property="article:author" content="junpang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.smyhvae.com/20180317_1134.png">
   
     <link rel="alternative" href="/atom.xml" title="前端学习日记" type="application/atom+xml">
   
@@ -150,265 +160,277 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-06-ES6：promise、async等" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      06-ES6：promise、async等
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" class="archive-article-date">
+  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文本主要内容：</p>
+<ul>
+<li><p>Promise（比较重要）</p>
+</li>
+<li><p>Symbol</p>
+</li>
+<li><p>async函数</p>
+</li>
+</ul>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Promise对象: 代表了未来某个将要发生的事件(通常是一个异步操作)。</p>
+<p>ES6中的promise对象, 可以<strong>将异步操作以同步的流程表达出来，</strong>很好地解决了<strong>回调地狱</strong>的问题（避免了层层嵌套的回调函数）。在使用ES5的时候，在多层嵌套回调时，写完的代码层次过多，很难进行维护和二次开发。</p>
+<h3 id="回调地狱的举例"><a href="#回调地狱的举例" class="headerlink" title="回调地狱的举例"></a>回调地狱的举例</h3><p>假设买菜、做饭、洗碗都是异步的。</p>
+<p>现在的流程是：买菜成功之后，才能开始做饭。做饭成功后，才能开始洗碗。这里面就涉及到了回调的嵌套。</p>
+<p>ES6的Promise是一个构造函数, 用来生成promise实例。</p>
+<h3 id="promise对象的3个状态"><a href="#promise对象的3个状态" class="headerlink" title="promise对象的3个状态"></a>promise对象的3个状态</h3><ul>
+<li><p>初始化状态（等待状态）：pending</p>
+</li>
+<li><p>成功状态：fullfilled</p>
+</li>
+<li><p>失败状态：rejected</p>
+</li>
+</ul>
+<h3 id="使用promise的基本步骤"><a href="#使用promise的基本步骤" class="headerlink" title="使用promise的基本步骤"></a>使用promise的基本步骤</h3><p>（1）创建promise对象</p>
+<p>（2）调用promise的<strong>回调函数</strong>then()</p>
+<p>代码格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//进来之后，状态为pending</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'111'</span>);  <span class="comment">//这一行代码是同步的</span></span><br><span class="line">    <span class="comment">//开始执行异步操作（这里开始，写异步的代码，比如ajax请求 or 开启定时器）</span></span><br><span class="line">    <span class="keyword">if</span> (异步的ajax请求成功) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'333'</span>);</span><br><span class="line">        resolve();<span class="comment">//如果请求成功了，请写resolve()，此时，promise的状态会被自动修改为fullfilled</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject();<span class="comment">//如果请求失败了，请写reject()，此时，promise的状态会被自动修改为rejected</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'222'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用promise的then()</span></span><br><span class="line">promise.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//如果promise的状态为fullfilled，则执行这里的代码</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'成功了'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    , () =&gt; &#123;</span><br><span class="line">        <span class="comment">//如果promise的状态为rejected，则执行这里的代码</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'失败了'</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>代码解释：</p>
+<p>（1）当new Promise()执行之后，promise对象的状态会被初始化为<code>pending</code>，这个状态是初始化状态。<code>new Promise()</code>这行代码，括号里的内容是同步执行的。括号里定义一个function，function有两个参数：resolve和reject。如下：</p>
+<ul>
+<li><p>如果请求成功了，请写resolve()，此时，promise的状态会被自动修改为fullfilled。</p>
+</li>
+<li><p>如果请求失败了，请写reject()，此时，promise的状态会被自动修改为rejected</p>
+</li>
+</ul>
+<p>（2）promise.then()方法，括号里面有两个参数，分别代表两个函数 function1 和 function2：</p>
+<ul>
+<li><p>如果promise的状态为fullfilled（意思是：如果请求成功），则执行function1里的内容</p>
+</li>
+<li><p>如果promise的状态为rejected（意思是，如果请求失败），则执行function2里的内容</p>
+</li>
+</ul>
+<p>另外，resolve()和reject()这两个方法，是可以给promise.then()传递参数的。如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//进来之后，状态为pending</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'111'</span>);  <span class="comment">//这行代码是同步的</span></span><br><span class="line">    <span class="comment">//开始执行异步操作（这里开始，写异步的代码，比如ajax请求 or 开启定时器）</span></span><br><span class="line">    <span class="keyword">if</span> (异步的ajax请求成功) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'333'</span>);</span><br><span class="line">        resolve(<span class="string">'haha'</span>);<span class="comment">//如果请求成功了，请写resolve()，此时，promise的状态会被自动修改为fullfilled</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="string">'555'</span>);<span class="comment">//如果请求失败了，请写reject()，此时，promise的状态会被自动修改为rejected</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'222'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用promise的then()</span></span><br><span class="line">promise.then(<span class="function">(<span class="params">successMsg</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//如果promise的状态为fullfilled，则执行这里的代码</span></span><br><span class="line">        <span class="built_in">console</span>.log(successMsg, <span class="string">'成功了'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    , (errorMsg) =&gt; &#123;</span><br><span class="line">        <span class="comment">//如果promise的状态为rejected，则执行这里的代码</span></span><br><span class="line">        <span class="built_in">console</span>.log(errorMsg, <span class="string">'失败了'</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ajax请求的举例（涉及到嵌套的回调）"><a href="#ajax请求的举例（涉及到嵌套的回调）" class="headerlink" title="ajax请求的举例（涉及到嵌套的回调）"></a>ajax请求的举例（涉及到嵌套的回调）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个请求news的方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNews</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//创建一个promise对象</span></span><br><span class="line">    <span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//初始化promise状态为pending</span></span><br><span class="line">        <span class="comment">//启动异步任务</span></span><br><span class="line">        <span class="keyword">let</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        request.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">                    <span class="keyword">let</span> news = request.response;</span><br><span class="line">                    resolve(news);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    reject(<span class="string">'请求失败了。。。'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        request.responseType = <span class="string">'json'</span>;<span class="comment">//设置返回的数据类型</span></span><br><span class="line">        request.open(<span class="string">"GET"</span>, url);<span class="comment">//规定请求的方法，创建链接</span></span><br><span class="line">        request.send();<span class="comment">//发送</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> promise;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getNews(<span class="string">'http://localhost:3000/news?id=2'</span>)</span><br><span class="line">    .then(<span class="function">(<span class="params">news</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(news);</span><br><span class="line">        <span class="built_in">document</span>.write(<span class="built_in">JSON</span>.stringify(news));</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'http://localhost:3000'</span> + news.commentsUrl);</span><br><span class="line">        <span class="keyword">return</span> getNews(<span class="string">'http://localhost:3000'</span> + news.commentsUrl);</span><br><span class="line">    &#125;, (error) =&gt; &#123;</span><br><span class="line">        alert(error);</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function">(<span class="params">comments</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(comments);</span><br><span class="line">        <span class="built_in">document</span>.write(<span class="string">'&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;'</span> + <span class="built_in">JSON</span>.stringify(comments));</span><br><span class="line">    &#125;, (error) =&gt; &#123;</span><br><span class="line">        alert(error);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>背景：ES5中对象的属性名都是字符串，容易造成重名，污染环境。</p>
+<p><strong>概念</strong>：ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li><p>Symbol属性对应的值是唯一的，解决<strong>命名冲突问题</strong></p>
+</li>
+<li><p>Symbol值不能与其他数据进行计算，包括同字符串拼串</p>
+</li>
+<li><p>for in、for of 遍历时不会遍历Symbol属性。</p>
+</li>
+</ul>
+<h3 id="创建Symbol属性值"><a href="#创建Symbol属性值" class="headerlink" title="创建Symbol属性值"></a>创建Symbol属性值</h3><p>Symbol是函数，但并不是构造函数。创建一个Symbol数据类型：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> mySymbol);  <span class="comment">//打印结果：symbol</span></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol);         <span class="comment">//打印结果：Symbol()</span></span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180317_1134.png" alt=""></p>
+<p>下面来讲一下Symbol的使用。</p>
+<h3 id="1、将Symbol作为对象的属性值"><a href="#1、将Symbol作为对象的属性值" class="headerlink" title="1、将Symbol作为对象的属性值"></a>1、将Symbol作为对象的属性值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'smyhvae'</span>,</span><br><span class="line">    age: <span class="number">26</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//obj.mySymbol = 'male'; //错误：不能用 . 这个符号给对象添加 Symbol 属性。</span></span><br><span class="line">obj[mySymbol] = <span class="string">'hello'</span>;    <span class="comment">//正确：通过**属性选择器**给对象添加 Symbol 属性。后面的属性值随便写。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中，我们尝试给obj添加一个Symbol类型的属性值，但是添加的时候，不能采用<code>.</code>这个符号，而是应该用<code>属性选择器</code>的方式。打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180317_1134.png" alt=""></p>
+<p>现在我们用for in尝试对上面的obj进行遍历：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'smyhvae'</span>,</span><br><span class="line">    age: <span class="number">26</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj[mySymbol] = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历obj</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180317_1134.png" alt=""></p>
+<p>从打印结果中可以看到：for in、for of 遍历时不会遍历Symbol属性。</p>
+<h3 id="创建Symbol属性值时，传参作为标识"><a href="#创建Symbol属性值时，传参作为标识" class="headerlink" title="创建Symbol属性值时，传参作为标识"></a>创建Symbol属性值时，传参作为标识</h3><p>如果我通过 Symbol()函数创建了两个值，这两个值是不一样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol1 = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> mySymbol2 = <span class="built_in">Symbol</span>();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol1 == mySymbol2); <span class="comment">//打印结果：false</span></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol1);         <span class="comment">//打印结果：Symbol()</span></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol2);         <span class="comment">//打印结果：Symbol()</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.smyhvae.com/20180317_1134.png" alt=""></p>
+<p>上面代码中，倒数第三行的打印结果也就表明了，二者的值确实是不相等的。</p>
+<p>最后两行的打印结果却发现，二者的打印输出，肉眼看到的却相同。那该怎么区分它们呢？</p>
+<p>既然Symbol()是函数，函数就可以传入参数，我们可以通过参数的不同来作为<strong>标识</strong>。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在括号里加入参数，来标识不同的Symbol</span></span><br><span class="line"><span class="keyword">let</span> mySymbol1 = <span class="built_in">Symbol</span>(<span class="string">'one'</span>);</span><br><span class="line"><span class="keyword">let</span> mySymbol2 = <span class="built_in">Symbol</span>(<span class="string">'two'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol1 == mySymbol2); <span class="comment">//打印结果：false</span></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol1);         <span class="comment">//打印结果：Symbol(one)</span></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol2);         <span class="comment">//打印结果：Symbol(two)。颜色为红色。</span></span><br><span class="line"><span class="built_in">console</span>.log(mySymbol2.toString());<span class="comment">//打印结果：Symbol(two)。颜色为黑色。</span></span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180317_1134.png" alt=""></p>
+<h3 id="定义常量"><a href="#定义常量" class="headerlink" title="定义常量"></a>定义常量</h3><p>Symbol 可以用来定义常量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MY_NAME = <span class="built_in">Symbol</span>(<span class="string">'my_name'</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="async函数（异步函数）"><a href="#async函数（异步函数）" class="headerlink" title="async函数（异步函数）"></a>async函数（异步函数）</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>async 函数是在 ES2017 引入的。</p>
+</blockquote>
+<p>概念：真正意义上去解决异步回调的问题，同步流程表达异步操作。</p>
+<p>本质： Generator 的语法糖。</p>
+<p>async比之前的 Promise、Generator要好用一些。</p>
+<p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> 异步操作;</span><br><span class="line">    <span class="keyword">await</span> 异步操作；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们在普通的函数前面加上 async 关键字，就成了 async 函数。</p>
+<h3 id="async、Promise、Generator的对比（async的特点）"><a href="#async、Promise、Generator的对比（async的特点）" class="headerlink" title="async、Promise、Generator的对比（async的特点）"></a>async、Promise、Generator的对比（async的特点）</h3><p>1、不需要像Generator去调用next方法，遇到await等待，当前的异步操作完成就往下执行。</p>
+<p>2、async返回的总是Promise对象，可以用then方法进行下一步操作。</p>
+<p>3、async取代Generator函数的星号*，await取代Generator的yield。</p>
+<p>4、语意上更为明确，使用简单，经临床验证，暂时没有任何副作用。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/">04-ES6：变量</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          02-ES5中的一些扩展
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">07-ES6：字符串、数组、对象的扩展</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/">05-ES6：函数扩展</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">03-ES6的介绍和环境配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">01-ES5中的严格模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/">02-ES5中的一些扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/">06-ES6：promise、async等</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/">07-ES6：字符串、数组、对象的扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:51:17.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">js数组方法总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:46:55.102Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -431,8 +453,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

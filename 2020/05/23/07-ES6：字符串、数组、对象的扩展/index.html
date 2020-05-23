@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 前端学习日记</title>
+  <title>07-ES6：字符串、数组、对象的扩展 | 前端学习日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习日记">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="字符串的扩展ES6中的字符串扩展，用得少，而且逻辑相对简单。如下：  includes(str)：判断是否包含指定的字符串  startsWith(str)：判断是否以指定字符串开头  endsWith(str)：判断是否以指定字符串结尾  repeat(count)：重复指定次数   举例如下： 123456789101112131415let str &#x3D; &#39;abcdefg&#39;;console.l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="07-ES6：字符串、数组、对象的扩展">
+<meta property="og:url" content="http://yoursite.com/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/index.html">
 <meta property="og:site_name" content="前端学习日记">
+<meta property="og:description" content="字符串的扩展ES6中的字符串扩展，用得少，而且逻辑相对简单。如下：  includes(str)：判断是否包含指定的字符串  startsWith(str)：判断是否以指定字符串开头  endsWith(str)：判断是否以指定字符串结尾  repeat(count)：重复指定次数   举例如下： 123456789101112131415let str &#x3D; &#39;abcdefg&#39;;console.l">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.smyhvae.com/20180402_1050.png">
+<meta property="og:image" content="http://img.smyhvae.com/20180404_2240.png">
+<meta property="og:image" content="http://img.smyhvae.com/20180404_2251.png">
+<meta property="article:published_time" content="2020-05-23T08:47:30.682Z">
+<meta property="article:modified_time" content="2020-05-23T08:26:27.581Z">
 <meta property="article:author" content="junpang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.smyhvae.com/20180402_1050.png">
   
     <link rel="alternative" href="/atom.xml" title="前端学习日记" type="application/atom+xml">
   
@@ -150,265 +158,255 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-07-ES6：字符串、数组、对象的扩展" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      07-ES6：字符串、数组、对象的扩展
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" class="archive-article-date">
+  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h2><p>ES6中的字符串扩展，用得少，而且逻辑相对简单。如下：</p>
+<ul>
+<li><p><code>includes(str)</code>：判断是否包含指定的字符串</p>
+</li>
+<li><p><code>startsWith(str)</code>：判断是否以指定字符串开头</p>
+</li>
+<li><p><code>endsWith(str)</code>：判断是否以指定字符串结尾</p>
+</li>
+<li><p><code>repeat(count)</code>：重复指定次数</p>
+</li>
+</ul>
+<p>举例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'abcdefg'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str.includes(<span class="string">'a'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(str.includes(<span class="string">'h'</span>));<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//startsWith(str) : 判断是否以指定字符串开头</span></span><br><span class="line"><span class="built_in">console</span>.log(str.startsWith(<span class="string">'a'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(str.startsWith(<span class="string">'d'</span>));<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//endsWith(str) : 判断是否以指定字符串结尾</span></span><br><span class="line"><span class="built_in">console</span>.log(str.endsWith(<span class="string">'g'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(str.endsWith(<span class="string">'d'</span>));<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//repeat(count) : 重复指定次数a</span></span><br><span class="line"><span class="built_in">console</span>.log(str.repeat(<span class="number">5</span>));</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180402_1050.png" alt=""></p>
+<h2 id="Number-的扩展"><a href="#Number-的扩展" class="headerlink" title="Number 的扩展"></a>Number 的扩展</h2><ul>
+<li>二进制与八进制数值表示法: 二进制用<code>0b</code>, 八进制用<code>0o</code>。</li>
+</ul>
+<p>举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">0b1010</span>);<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0o56</span>);<span class="comment">//46</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>Number.isFinite(i)</code>：判断是否为有限大的数。比如<code>Infinity</code>这种无穷大的数，返回的就是false。</p>
+</li>
+<li><p><code>Number.isNaN(i)</code>：判断是否为NaN。</p>
+</li>
+<li><p><code>Number.isInteger(i)</code>：判断是否为整数。</p>
+</li>
+<li><p><code>Number.parseInt(str)</code>：将字符串转换为对应的数值。</p>
+</li>
+<li><p><code>Math.trunc(i)</code>：去除小数部分。</p>
+</li>
+</ul>
+<p>举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Number.isFinite(i) : 判断是否是有限大的数</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="number">5</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="literal">Infinity</span>)); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Number.isNaN(i) : 判断是否是NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">NaN</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="number">5</span>));<span class="comment">//falsse</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Number.isInteger(i) : 判断是否是整数</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">5.23</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">5.0</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">5</span>));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Number.parseInt(str) : 将字符串转换为对应的数值</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseInt(<span class="string">'123abc'</span>));<span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseInt(<span class="string">'a123abc'</span>));<span class="comment">//NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Math.trunc(i) : 直接去除小数部分</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">13.123</span>));<span class="comment">//13</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h2><blockquote>
+<p>下面提到的数组的几个方法，更详细的内容，可以看《04-JavaScript基础/17-数组的常见方法.md》。</p>
+</blockquote>
+<h3 id="扩展1：Array-from"><a href="#扩展1：Array-from" class="headerlink" title="扩展1：Array.from()"></a>扩展1：Array.from()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.from(伪数组/可遍历的对象)</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>：将<strong>伪数组</strong>或可遍历对象转换为<strong>真数组</strong>。</p>
+<h3 id="扩展2：Array-of"><a href="#扩展2：Array-of" class="headerlink" title="扩展2：Array.of()"></a>扩展2：Array.of()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.of(value1, value2, value3)</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>：将一系列值转换成数组。</p>
+<h3 id="扩展3：find-和-findIndex"><a href="#扩展3：find-和-findIndex" class="headerlink" title="扩展3：find() 和 findIndex()"></a>扩展3：find() 和 findIndex()</h3><p><strong>方法1</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, arr</span>)</span>&#123;<span class="keyword">return</span> <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>：找出<strong>第一个</strong>满足「指定条件返回true」的元素。</p>
+<p><strong>方法2</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, arr</span>)</span>&#123;<span class="keyword">return</span> <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>：找出第一个满足「指定条件返回true」的元素的index。</p>
+<h2 id="对象的扩展"><a href="#对象的扩展" class="headerlink" title="对象的扩展"></a>对象的扩展</h2><h3 id="扩展1"><a href="#扩展1" class="headerlink" title="扩展1"></a>扩展1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.is(v1, v2)</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用：</strong>判断两个数据是否完全相等。底层是通过<strong>字符串</strong>来判断的。</p>
+<p>我们先来看下面这两行代码的打印结果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> == <span class="number">-0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>);</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">false</span><br></pre></td></tr></table></figure>
+
+<p>上方代码中，第一行代码的打印结果为true，这个很好理解。第二行代码的打印结果为false，因为NaN和任何值都不相等。</p>
+<p>但是，如果换成下面这种方式来比较：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.is(<span class="number">0</span>, <span class="number">-0</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="literal">NaN</span>));</span><br></pre></td></tr></table></figure>
+
+<p>打印结果却是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">false</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>代码解释：还是刚刚说的那样，<code>Object.is(v1, v2)</code>比较的是字符串是否相等。</p>
+<h3 id="扩展2（重要）"><a href="#扩展2（重要）" class="headerlink" title="扩展2（重要）"></a>扩展2（重要）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(目标对象, 源对象<span class="number">1</span>, 源对象<span class="number">2.</span>..)</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用：</strong> 将源对象的属性追加到目标对象上。如果对象里属性名相同，会被覆盖。</p>
+<p>其实可以理解成：将多个对象<strong>合并</strong>为一个新的对象。</p>
+<p>举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123; <span class="attr">name</span>: <span class="string">'smyhvae'</span>, <span class="attr">age</span>: <span class="number">26</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123; <span class="attr">city</span>: <span class="string">'shenzhen'</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> obj3 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.assign(obj3, obj1, obj2);</span><br><span class="line"><span class="built_in">console</span>.log(obj3);</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180404_2240.png" alt=""></p>
+<p>上图显示，成功将obj1和obj2的属性复制给了obj3。</p>
+<h3 id="扩展3：-proto-属性"><a href="#扩展3：-proto-属性" class="headerlink" title="扩展3：__proto__属性"></a>扩展3：<code>__proto__</code>属性</h3><p>举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">name</span>:<span class="string">'smyhvae'</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj2.__proto__ = obj1;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br><span class="line"><span class="built_in">console</span>.log(obj2.name);</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180404_2251.png" alt=""></p>
+<p>上方代码中，obj2本身是没有属性的，但是通过<code>__proto__</code>属性和obj1产生关联，于是就可以获得obj1里的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/">04-ES6：变量</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          06-ES6：promise、async等
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js数组方法总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/">05-ES6：函数扩展</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">03-ES6的介绍和环境配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">01-ES5中的严格模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/">02-ES5中的一些扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/">06-ES6：promise、async等</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/">07-ES6：字符串、数组、对象的扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:51:17.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">js数组方法总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:46:55.102Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -431,8 +429,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

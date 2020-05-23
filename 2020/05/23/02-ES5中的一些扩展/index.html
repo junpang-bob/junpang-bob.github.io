@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 前端学习日记</title>
+  <title>02-ES5中的一些扩展 | 前端学习日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习日记">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="JSON 对象1、js对象(数组) –&gt; json对象(数组)： 1JSON.stringify(obj&#x2F;arr)  2、json对象(数组) –&gt; js对象(数组)： 1JSON.parse(json)   上面这两个方法是ES5中提供的。 我们要记住，我们通常说的“json字符串”，只有两种：json对象、json数组。 typeof json字符串的返回结果是string。 Ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02-ES5中的一些扩展">
+<meta property="og:url" content="http://yoursite.com/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/index.html">
 <meta property="og:site_name" content="前端学习日记">
+<meta property="og:description" content="JSON 对象1、js对象(数组) –&gt; json对象(数组)： 1JSON.stringify(obj&#x2F;arr)  2、json对象(数组) –&gt; js对象(数组)： 1JSON.parse(json)   上面这两个方法是ES5中提供的。 我们要记住，我们通常说的“json字符串”，只有两种：json对象、json数组。 typeof json字符串的返回结果是string。 Ob">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.smyhvae.com/20180401_2150.png">
+<meta property="article:published_time" content="2020-05-23T08:47:30.682Z">
+<meta property="article:modified_time" content="2020-05-23T08:26:27.577Z">
 <meta property="article:author" content="junpang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.smyhvae.com/20180401_2150.png">
   
     <link rel="alternative" href="/atom.xml" title="前端学习日记" type="application/atom+xml">
   
@@ -150,265 +156,268 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-02-ES5中的一些扩展" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      02-ES5中的一些扩展
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/" class="archive-article-date">
+  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h2><p>1、js对象(数组) –&gt; json对象(数组)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(obj/arr)</span><br></pre></td></tr></table></figure>
+
+<p>2、json对象(数组) –&gt; js对象(数组)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(json)</span><br></pre></td></tr></table></figure>
+
+
+<p>上面这两个方法是ES5中提供的。</p>
+<p>我们要记住，我们通常说的“json字符串”，只有两种：<strong>json对象、json数组</strong>。</p>
+<p><code>typeof json字符串</code>的返回结果是string。</p>
+<h2 id="Object的扩展"><a href="#Object的扩展" class="headerlink" title="Object的扩展"></a>Object的扩展</h2><p>ES5给Object扩展了一些静态方法，常用的有2个，我们接下来讲解。</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.create(prototype, [descriptors])</span><br></pre></td></tr></table></figure>
+
+<p>作用: 以指定对象为原型，创建新的对象。同时，第二个参数可以为为新的对象添加新的属性，并对此属性进行描述。</p>
+<p><strong>举例1</strong>：（没有第二个参数时）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">username</span>: <span class="string">'smyhvae'</span>, <span class="attr">age</span>: <span class="number">26</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">address</span>:<span class="string">'shenzhen'</span>&#125;;</span><br><span class="line"></span><br><span class="line">obj2 = <span class="built_in">Object</span>.create(obj1);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><img src="http://img.smyhvae.com/20180401_2150.png" alt=""></p>
+<p>我们发现，obj1成为了obj2的原型。</p>
+<p><strong>举例2</strong>：（有第二个参数时）</p>
+<p>第二个参数可以给新的对象添加新的属性。我们修改上面的代码，尝试给obj2添加新属性<code>sex</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">username</span>: <span class="string">'smyhvae'</span>, <span class="attr">age</span>: <span class="number">26</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">address</span>: <span class="string">'shenzhen'</span>&#125;;</span><br><span class="line"></span><br><span class="line">obj2 = <span class="built_in">Object</span>.create(obj1, &#123;</span><br><span class="line">    sex: &#123;<span class="comment">//给obj2添加新的属性`sex`。注意，这一行的冒号不要漏掉</span></span><br><span class="line">        value: <span class="string">'男'</span>,  <span class="comment">//通过value关键字设置sex的属性值</span></span><br><span class="line">        writable: <span class="literal">false</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br></pre></td></tr></table></figure>
+
+<p>上方代码中，我们通过第5行的sex给obj2设置了一个新的属性<code>sex</code>，但是要通过<code>value</code>来设置属性值（第6行）。</p>
+<p>设置完属性值后，这个属性值默认是不可修改的，要通过<code>writable</code>来设置。总而言之，这几个关键字的解释如下：</p>
+<ul>
+<li><code>value</code>：设置属性值。</li>
+<li><code>writable</code>：标识当前属性值是否可修改。如果不写的话，默认为false，不可修改。</li>
+<li><code>configurable</code>：标识当前属性是否可以被删除。默认为false，不可删除。</li>
+<li><code>enumerable</code>：标识当前属性是否能用 for in 枚举。 默认为false，不可。</li>
+</ul>
+<h4 id="单独设置属性"><a href="#单独设置属性" class="headerlink" title="单独设置属性"></a>单独设置属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj2, &#39;sex&#39;, &#123;</span><br><span class="line">        value: &#39;cc&#39;,</span><br><span class="line">        writable: true,</span><br><span class="line">        configurable: true,</span><br><span class="line">        enumerable: true,</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><blockquote>
+<p>这个方法有点难理解。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperties(object, descriptors)</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>：为指定对象定义扩展多个属性。</p>
+<p>代码举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    firstName : <span class="string">'smyh'</span>,</span><br><span class="line">    lastName : <span class="string">'vae'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj2, &#123;</span><br><span class="line">    fullName : &#123;</span><br><span class="line">        <span class="keyword">get</span> : function () &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">'-'</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span> : function (data) &#123;  <span class="comment">//监听扩展属性，当扩展属性发生变化的时候自动调用，自动调用后将变化的值作为实参注入到set函数</span></span><br><span class="line">            <span class="keyword">var</span> names = data.split(<span class="string">'-'</span>);</span><br><span class="line">            <span class="keyword">this</span>.firstName = names[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">this</span>.lastName = names[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj2.fullName);</span><br><span class="line">obj2.firstName = <span class="string">'tim'</span>;</span><br><span class="line">obj2.lastName = <span class="string">'duncan'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj2.fullName);</span><br><span class="line">obj2.fullName = <span class="string">'kobe-bryant'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj2.fullName);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>get ：用来获取当前属性值的回调函数</p>
+</li>
+<li><p>set ：修改当前属性值得触发的回调函数，并且实参即为修改后的值</p>
+</li>
+</ul>
+<p>存取器属性：setter,getter一个用来存值，一个用来取值。</p>
+<h2 id="Object的扩展（二）"><a href="#Object的扩展（二）" class="headerlink" title="Object的扩展（二）"></a>Object的扩展（二）</h2><p>obj对象本身就自带了两个方法。格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> 属性名()&#123;&#125; 用来得到当前属性值的回调函数</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> 属性名()&#123;&#125; 用来监视当前属性值变化的回调函数</span><br></pre></td></tr></table></figure>
+
+<p>举例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    firstName : <span class="string">'kobe'</span>,</span><br><span class="line">    lastName : <span class="string">'bryant'</span>,</span><br><span class="line">    <span class="keyword">get</span> fullName()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> fullName(data)&#123;</span><br><span class="line">        <span class="keyword">var</span> names = data.split(<span class="string">' '</span>);</span><br><span class="line">        <span class="keyword">this</span>.firstName = names[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">this</span>.lastName = names[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.fullName);</span><br><span class="line">obj.fullName = <span class="string">'curry stephen'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.fullName);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h2><blockquote>
+<p>下面讲的这几个方法，都是给数组的实例用的。</p>
+</blockquote>
+<blockquote>
+<p>下面提到的数组的这五个方法，更详细的内容，可以看《03-JavaScript基础/15-数组的常见方法.md》</p>
+</blockquote>
+<p><strong>方法1</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.indexOf(value)</span><br></pre></td></tr></table></figure>
+
+<p>作用：获取 value 在数组中的第一个下标。</p>
+<p><strong>方法2</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.lastIndexOf(value)</span><br></pre></td></tr></table></figure>
+
+<p>作用：获取 value 在数组中的最后一个下标。</p>
+<p><strong>方法3</strong>：遍历数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>方法4</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.map(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>作用：遍历数组返回一个新的数组，返回的是<strong>加工之后</strong>的新数组。</p>
+<p><strong>方法5</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>作用：遍历过滤出一个新的子数组，返回条件为true的值。</p>
+<h2 id="函数function的扩展：bind"><a href="#函数function的扩展：bind" class="headerlink" title="函数function的扩展：bind()"></a>函数function的扩展：bind()</h2><blockquote>
+<p>ES5中新增了<code>bind()</code>函数来改变this的指向。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind(obj)</span><br></pre></td></tr></table></figure>
+
+<p>作用：将函数内的this绑定为obj, 并将函数返回。</p>
+<p><strong>面试题</strong>: call()、apply()和bind()的区别：</p>
+<ul>
+<li><p>都能改变this的指向</p>
+</li>
+<li><p>call()/apply()是<strong>立即调用函数</strong></p>
+</li>
+<li><p>bind()：绑定完this后，不会立即调用当前函数，而是<strong>将函数返回</strong>，因此后面还需要再加<code>()</code>才能调用。</p>
+</li>
+</ul>
+<p>PS：bind()传参的方式和call()一样。</p>
+<p><strong>分析</strong>：</p>
+<p>为什么ES5中要加入bind()方法来改变this的指向呢？因为bind()不会立即调用当前函数。</p>
+<p>bind()通常使用在回调函数中，因为回调函数并不会立即调用。如果你希望在回调函数中改变this，不妨使用bind()。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/">04-ES6：变量</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          01-ES5中的严格模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">06-ES6：promise、async等</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/">05-ES6：函数扩展</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">03-ES6的介绍和环境配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">01-ES5中的严格模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/">02-ES5中的一些扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/">06-ES6：promise、async等</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/">07-ES6：字符串、数组、对象的扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:51:17.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">js数组方法总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:46:55.102Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -431,8 +440,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

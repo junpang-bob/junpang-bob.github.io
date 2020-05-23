@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 前端学习日记</title>
+  <title>04-ES6：变量 | 前端学习日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习日记">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="ES6 的变量声明ES6 中新增了 let 和 const 来定义变量：  var：ES5 和 ES6中，定义全局变量（是variable的简写）。  let：定义局部变量，替代 var。  const：定义常量（定义后，不可修改）。   var：全局变量看下面的代码： 12345&amp;#123;    var a &#x3D; 1;&amp;#125;console.log(a);   &#x2F;&#x2F;这里的 a，指的是 区块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="04-ES6：变量">
+<meta property="og:url" content="http://yoursite.com/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/index.html">
 <meta property="og:site_name" content="前端学习日记">
+<meta property="og:description" content="ES6 的变量声明ES6 中新增了 let 和 const 来定义变量：  var：ES5 和 ES6中，定义全局变量（是variable的简写）。  let：定义局部变量，替代 var。  const：定义常量（定义后，不可修改）。   var：全局变量看下面的代码： 12345&amp;#123;    var a &#x3D; 1;&amp;#125;console.log(a);   &#x2F;&#x2F;这里的 a，指的是 区块">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.smyhvae.com/20190904_1030.gif">
+<meta property="og:image" content="http://img.smyhvae.com/20190904_1040.gif">
+<meta property="og:image" content="http://img.smyhvae.com/20180304_1626.png">
+<meta property="og:image" content="http://img.smyhvae.com/20180304_2016.png">
+<meta property="article:published_time" content="2020-05-23T08:47:30.697Z">
+<meta property="article:modified_time" content="2020-05-23T08:26:27.580Z">
 <meta property="article:author" content="junpang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.smyhvae.com/20190904_1030.gif">
   
     <link rel="alternative" href="/atom.xml" title="前端学习日记" type="application/atom+xml">
   
@@ -150,265 +159,282 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-04-ES6：变量" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      04-ES6：变量
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/" class="archive-article-date">
+  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ES6-的变量声明"><a href="#ES6-的变量声明" class="headerlink" title="ES6 的变量声明"></a>ES6 的变量声明</h2><p>ES6 中新增了 let 和 const 来定义变量：</p>
+<ul>
+<li><p><code>var</code>：ES5 和 ES6中，定义<strong>全局变量</strong>（是variable的简写）。</p>
+</li>
+<li><p><code>let</code>：定义<strong>局部变量</strong>，替代 var。</p>
+</li>
+<li><p><code>const</code>：定义<strong>常量</strong>（定义后，不可修改）。</p>
+</li>
+</ul>
+<h3 id="var：全局变量"><a href="#var：全局变量" class="headerlink" title="var：全局变量"></a>var：全局变量</h3><p>看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//这里的 a，指的是 区块 里的 a</span></span><br></pre></td></tr></table></figure>
+
+<p>上方代码是可以输出结果的，输出结果为 1。因为 var 是全局声明的，所以，即使是在区块里声明，但仍然在全局起作用。</p>
+<p>再来看下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//这里的 a，指的是 区块 里的 a</span></span><br></pre></td></tr></table></figure>
+
+<p>上方代码的输出结果为 2 ，因为 var 是全局声明的。</p>
+<p><strong>总结：</strong></p>
+<p> 用 var 定义的全部变量，有时候会污染整个 js 的作用域。</p>
+<h3 id="let：定义局部变量"><a href="#let：定义局部变量" class="headerlink" title="let：定义局部变量"></a>let：定义局部变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+
+<p>上方代码的输出结果为 2。用 let 声明的变量，只在局部（<strong>块级作用域内</strong>）起作用。</p>
+<p>let是防止数据污染，我们来看下面这个 <strong>for 循环</strong>的例子，很经典。</p>
+<p>1、用 var 声明变量：（）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'循环体中:'</span> + i); <span class="comment">// 每循环一次，就会在 &#123; &#125; 所在的块级作用域中，重新定义一个新的 i</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'循环体外:'</span> + i);</span><br></pre></td></tr></table></figure>
+
+<p>上方代码可以正常打印结果，且最后一行的打印结果是10。说明循环体外定义的变量 i，是在全局起作用的。</p>
+<p>2、用let声明变量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'循环体中:'</span> + i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'循环体外:'</span> + i);</span><br></pre></td></tr></table></figure>
+
+<p>上方代码的最后一行无法打印结果，也就是说打印会报错。因为用 let 定义的变量 i，只在<code>{ }</code>这个<strong>块级作用域</strong>里生效。</p>
+<p><strong>总结：</strong>我们要习惯用 let 声明，减少var声明带来的<strong>污染全局空间</strong>。</p>
+<p>为了进一步说明 let 不会带来污染，需要说明的是：当我们定义了<code>let a = 1</code>时，如果我们在同一个作用域内继续定义<code>let a = 2</code>，是会报错的。</p>
+<h3 id="const：定义常量"><a href="#const：定义常量" class="headerlink" title="const：定义常量"></a>const：定义常量</h3><p>在程序开发中，有些变量是希望声明后，在业务层就不再发生变化，此时可以用 const 来定义。</p>
+<p>举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'smyhvae'</span>;  <span class="comment">//定义常量</span></span><br></pre></td></tr></table></figure>
+
+<p>用 const 声明的变量，只在局部（块级作用域内）起作用。</p>
+<h3 id="let-和-const-的作用【重要】"><a href="#let-和-const-的作用【重要】" class="headerlink" title="let 和 const 的作用【重要】"></a>let 和 const 的作用【重要】</h3><p>let 和 const 的作用如下：</p>
+<ul>
+<li><p>禁止重复声明</p>
+</li>
+<li><p>支持块级作用域</p>
+</li>
+<li><p>控制修改</p>
+</li>
+</ul>
+<p>相反， 用<code>var</code>声明的变量：可以重复声明、<strong>没有块级作用域</strong>、不能限制。</p>
+<h3 id="for循环举例【经典案例】"><a href="#for循环举例【经典案例】" class="headerlink" title="for循环举例【经典案例】"></a>for循环举例【经典案例】</h3><p><strong>代码1</strong>、我们先来看看如下代码：（用 var 定义变量 i）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"aa"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"bb"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"cc"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"dd"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> myBtn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"input"</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; myBtn.length; i++) &#123;</span></span><br><span class="line"><span class="actionscript">        myBtn[i].onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line">          alert(i);</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上方代码中的运行效果如下：</p>
+<p><img src="http://img.smyhvae.com/20190904_1030.gif" alt=""></p>
+<p>你可能会感到诧异，为何点击任何一个按钮，弹出的内容都是4呢？这是因为，我们用 var 定义的变量 i，是在全局作用域声明的。整个代码中，自始至终只有一个变量。当我们还没点击按钮之前，变量 i 已经循环到4了。</p>
+<p>也就是说，上面的 for 循环，相当于如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">myBtn[<span class="number">0</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">alert(i);</span><br><span class="line">&#125;;</span><br><span class="line">i++;</span><br><span class="line"></span><br><span class="line">myBtn[<span class="number">1</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">alert(i);</span><br><span class="line">&#125;;</span><br><span class="line">i++;</span><br><span class="line"></span><br><span class="line">myBtn[<span class="number">2</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">alert(i);</span><br><span class="line">&#125;;</span><br><span class="line">i++;</span><br><span class="line"></span><br><span class="line">myBtn[<span class="number">3</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">alert(i);</span><br><span class="line">&#125;;</span><br><span class="line">i++;  <span class="comment">// 到这里，i 的值已经是4了。因此，当我们点击按钮时，i的值一直都是4</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>代码2</strong>、上面的代码中，如果我们改为用 let 定义变量 i：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"aa"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"bb"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"cc"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"dd"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> myBtn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"input"</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; myBtn.length; i++) &#123;</span></span><br><span class="line"><span class="actionscript">        myBtn[i].onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line">          alert(i);</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上方代码中的运行效果如下：</p>
+<p><img src="http://img.smyhvae.com/20190904_1040.gif" alt=""></p>
+<p>上面这个运行结果，才是我们预期的效果。我们用 let 定义变量 i，在循环的过程中，每执行一次循环体，就会诞生一个新的 i。循环体执行4次，就会有四个 i。</p>
+<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><p>ES6允许我们，通过数组或者对象的方式，对一组变量进行赋值，这被称为解构。</p>
+<p>解构赋值在实际开发中可以大量减少我们的代码量，并且让程序结构更清晰。</p>
+<h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><p><strong>举例：</strong></p>
+<p>通常情况下，我们在为一组变量赋值时，一般是这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们可以通过数组解构的方式进行赋值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a, b, c] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+
+<p>二者的效果是一样的。</p>
+<p><strong>解构的默认值：</strong></p>
+<p>在解构赋值时，是允许使用默认值的。举例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">//一个变量时</span></span><br><span class="line">    <span class="keyword">let</span> [foo = <span class="literal">true</span>] = [];</span><br><span class="line">    <span class="built_in">console</span>.log(foo); <span class="comment">//输出结果：true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//两个变量时</span></span><br><span class="line">    <span class="keyword">let</span> [a, b] = [<span class="string">'生命壹号'</span>]   <span class="comment">//a 赋值为：生命壹号。b没有赋值</span></span><br><span class="line">    <span class="built_in">console</span>.log(a + <span class="string">','</span> + b); <span class="comment">//输出结果：生命壹号,undefined</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//两个变量时</span></span><br><span class="line">    <span class="keyword">let</span> [a, b = <span class="string">'smyhvae'</span>] = [<span class="string">'生命壹号'</span>]   <span class="comment">//a 赋值为：生命壹号。b 采用默认值 smyhvae</span></span><br><span class="line">    <span class="built_in">console</span>.log(a + <span class="string">','</span> + b); <span class="comment">//输出结果：生命壹号,smyhvae</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>undefined</code>和<code>null</code>的区别：</p>
+<p>如果我们在赋值时，采用的是 <code>undefined</code>或者<code>null</code>，那会有什么区别呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> [a, b = <span class="string">'smyhvae'</span>] = [<span class="string">'生命壹号'</span>, <span class="literal">undefined</span>]; <span class="comment">//b 虽然被赋值为 undefined，但是 b 会采用默认值</span></span><br><span class="line">    <span class="built_in">console</span>.log(a + <span class="string">','</span> + b); <span class="comment">//输出结果：生命壹号,smyhvae</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> [a, b = <span class="string">'smyhvae'</span>] = [<span class="string">'生命壹号'</span>, <span class="literal">null</span>];  <span class="comment">//b 被赋值为 null</span></span><br><span class="line">    <span class="built_in">console</span>.log(a + <span class="string">','</span> + b); <span class="comment">//输出结果：生命壹号,null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上方代码分析：</p>
+<ul>
+<li><p>undefined：相当于什么都没有，此时 b 采用默认值。</p>
+</li>
+<li><p>null：相当于有值，但值为 null。</p>
+</li>
+</ul>
+<h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><p>通常情况下，我们从接口拿到json数据后，一般这么赋值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = json.a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = json.b;</span><br><span class="line"></span><br><span class="line">bar c = json.c;</span><br></pre></td></tr></table></figure>
+
+<p>上面这样写，过于麻烦了。</p>
+<p>现在，我们同样可以针对对象，进行结构赋值。</p>
+<p><strong>举例如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo, bar &#125; &#x3D; &#123; bar: &#39;我是 bar 的值&#39;, foo: &#39;我是 foo 的值&#39; &#125;;</span><br><span class="line">console.log(foo + &#39;,&#39; + bar); &#x2F;&#x2F;输出结果：我是键 foo 的值,我是键 bar 的值</span><br></pre></td></tr></table></figure>
+
+<p>上方代码可以看出，对象的解构与数组的结构，有一个重要的区别：<strong>数组</strong>的元素是按次序排列的，变量的取值由它的<strong>位置</strong>决定；而<strong>对象的属性没有次序</strong>，是<strong>根据键来取值</strong>的。</p>
+<p><strong>圆括号的使用</strong>：</p>
+<p>如果变量 foo 在解构之前就已经定义了，此时你再去解构，就会出现问题。下面是错误的代码，编译会报错：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="string">'haha'</span>;</span><br><span class="line">&#123; foo &#125; = &#123; <span class="attr">foo</span>: <span class="string">'smyhvae'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(foo);</span><br></pre></td></tr></table></figure>
+
+<p>要解决报错，只要在解构的语句外边，加一个圆括号即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="string">'haha'</span>;</span><br><span class="line">(&#123; foo &#125; = &#123; <span class="attr">foo</span>: <span class="string">'smyhvae'</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//输出结果：smyhvae</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串解构"><a href="#字符串解构" class="headerlink" title="字符串解构"></a>字符串解构</h3><p>字符串也可以解构，这是因为，此时字符串被转换成了一个类似数组的对象。举例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [a, b, c, d] = <span class="string">'smyhvae'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="built_in">console</span>.log(d);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);  <span class="comment">//输出结果：string</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><img src="http://img.smyhvae.com/20180304_1626.png" alt=""></p>
+<h2 id="for-…-of-循环"><a href="#for-…-of-循环" class="headerlink" title="for … of 循环"></a>for … of 循环</h2><p>ES6 中，如果我们要遍历一个数组，可以这样做：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr1 &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">for (let value of arr1) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><img src="http://img.smyhvae.com/20180304_2016.png" alt=""></p>
+<p>for…of 的循环可以避免我们开拓内存空间，增加代码运行效率，所以建议大家在以后的工作中使用for…of循环。</p>
+<p>注意，上面的数组中，<code>for ... of</code>获取的是数组里的值；<code>for ... in</code>获取的是index索引值。</p>
+<h3 id="Map对象的遍历"><a href="#Map对象的遍历" class="headerlink" title="Map对象的遍历"></a>Map对象的遍历</h3><p><code>for ... of</code>既可以遍历数组，也可以遍历Map对象。</p>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>我们以前让字符串进行拼接的时候，是这样做的：（传统写法的字符串拼接）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'smyhvae'</span>;</span><br><span class="line"><span class="keyword">var</span> age = <span class="string">'26'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name:'</span>+name+<span class="string">',age:'</span>+age);   <span class="comment">//传统写法</span></span><br></pre></td></tr></table></figure>
+
+
+<p>这种写法，比较繁琐，而且容易出错。</p>
+<p>现在有了 ES6 语法，字符串拼接可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'smyhvae'</span>;</span><br><span class="line"><span class="keyword">var</span> age = <span class="string">'26'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name:'</span>+name+<span class="string">',age:'</span>+age);   <span class="comment">//传统写法</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`name:<span class="subst">$&#123;name&#125;</span>,age:<span class="subst">$&#123;age&#125;</span>`</span>);  <span class="comment">//ES6 写法</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>，上方代码中，倒数第二行用的符号是单引号，最后一行用的符号是反引号（在tab键的上方）。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/">04-ES6：变量</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/23/04-ES6%EF%BC%9A%E5%8F%98%E9%87%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">05-ES6：函数扩展</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/05-ES6%EF%BC%9A%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/">05-ES6：函数扩展</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/03-ES6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">03-ES6的介绍和环境配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/01-ES5%E4%B8%AD%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">01-ES5中的严格模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/02-ES5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95/">02-ES5中的一些扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/06-ES6%EF%BC%9Apromise%E3%80%81async%E7%AD%89/">06-ES6：promise、async等</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-23T08:47:30.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/07-ES6%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/">07-ES6：字符串、数组、对象的扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:51:17.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/js%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">js数组方法总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-14T03:46:55.102Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -431,8 +457,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
